@@ -14,7 +14,7 @@ function init() {
     document.getElementById('current-year').textContent = new Date().getFullYear();
     
     // Efecto de entrada
-    animateElements();
+    animateEntrance();
     
     // Mostrar mensaje de bienvenida
     showWelcomeMessage();
@@ -28,11 +28,11 @@ function initParticles() {
                     value: 40,
                     density: {
                         enable: true,
-                        value_area: 800
+                        value_area: 1000
                     }
                 },
                 color: {
-                    value: ["#2563eb", "#7c3aed", "#10b981"]
+                    value: ["#3b82f6", "#8b5cf6", "#10b981"]
                 },
                 shape: {
                     type: "circle"
@@ -42,7 +42,7 @@ function initParticles() {
                     random: true
                 },
                 size: {
-                    value: 2,
+                    value: 3,
                     random: true
                 },
                 line_linked: {
@@ -81,26 +81,36 @@ function initParticles() {
     }
 }
 
-function animateElements() {
+function animateEntrance() {
     // Animación escalonada de elementos
-    const elements = document.querySelectorAll('.profile-section, .agency-section, .action-buttons-section, .skills-section, .social-section, .footer-quote');
+    const elements = [
+        '.profile-section',
+        '.agency-integrated-section',
+        '.action-buttons-section',
+        '.skills-section',
+        '.social-section',
+        '.footer-quote'
+    ];
     
-    elements.forEach((element, index) => {
-        element.style.opacity = '0';
-        element.style.transform = 'translateY(20px)';
-        
-        setTimeout(() => {
-            element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            element.style.opacity = '1';
-            element.style.transform = 'translateY(0)';
-        }, 200 + (index * 100));
+    elements.forEach((selector, index) => {
+        const element = document.querySelector(selector);
+        if (element) {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(20px)';
+            
+            setTimeout(() => {
+                element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                element.style.opacity = '1';
+                element.style.transform = 'translateY(0)';
+            }, 100 + (index * 100));
+        }
     });
 }
 
 function setupInteractions() {
-    // Efecto de clic en botones de acción
-    const actionButtons = document.querySelectorAll('.action-button');
-    actionButtons.forEach(button => {
+    // Efecto de clic en botones principales
+    const mainButtons = document.querySelectorAll('.datavantex-button, .action-button');
+    mainButtons.forEach(button => {
         button.addEventListener('click', function(e) {
             // Efecto de pulsación
             this.style.transform = 'scale(0.98)';
@@ -109,7 +119,7 @@ function setupInteractions() {
                 this.style.transform = '';
             }, 150);
             
-            // Abrir enlace después de la animación
+            // Abrir enlace
             const href = this.getAttribute('href');
             if (href && !href.startsWith('#')) {
                 e.preventDefault();
@@ -118,152 +128,86 @@ function setupInteractions() {
                 }, 200);
             }
         });
-        
-        // Efecto de brillo al pasar el mouse
-        button.addEventListener('mouseenter', function() {
-            const buttonType = this.classList.contains('datavantex') ? 'datavantex' :
-                             this.classList.contains('portfolio') ? 'portfolio' : 'store';
-            
-            // Agregar efecto de brillo
-            const glow = document.createElement('div');
-            glow.className = 'button-glow';
-            glow.style.cssText = `
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: inherit;
-                filter: blur(20px);
-                opacity: 0;
-                z-index: 0;
-                border-radius: 12px;
-                animation: glowFadeIn 0.3s forwards;
-            `;
-            
-            this.appendChild(glow);
-            
-            setTimeout(() => {
-                if (glow.parentNode === this) {
-                    glow.style.animation = 'glowFadeOut 0.3s forwards';
-                    setTimeout(() => glow.remove(), 300);
-                }
-            }, 600);
-        });
     });
     
-    // Efecto hover en tarjetas de habilidades
+    // Efecto hover para tarjetas de habilidades
     const skillCards = document.querySelectorAll('.skill-card');
     skillCards.forEach(card => {
         card.addEventListener('mouseenter', function() {
             const icon = this.querySelector('.skill-icon');
-            icon.style.transform = 'rotate(15deg) scale(1.1)';
+            if (icon) {
+                icon.style.transform = 'rotate(10deg)';
+            }
         });
         
         card.addEventListener('mouseleave', function() {
             const icon = this.querySelector('.skill-icon');
-            icon.style.transform = 'rotate(0) scale(1)';
+            if (icon) {
+                icon.style.transform = 'rotate(0)';
+            }
         });
     });
     
-    // Efecto hover en enlaces sociales
+    // Efecto hover para enlaces sociales
     const socialLinks = document.querySelectorAll('.social-link');
     socialLinks.forEach(link => {
         link.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-3px) scale(1.05)';
+            this.style.transform = 'translateY(-3px)';
         });
         
         link.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0) scale(1)';
+            this.style.transform = 'translateY(0)';
         });
     });
-    
-    // Efecto de agencia
-    const agencySection = document.querySelector('.agency-section');
-    if (agencySection) {
-        agencySection.addEventListener('mouseenter', function() {
-            const icon = this.querySelector('.agency-icon');
-            icon.style.transform = 'rotate(15deg) scale(1.1)';
-        });
-        
-        agencySection.addEventListener('mouseleave', function() {
-            const icon = this.querySelector('.agency-icon');
-            icon.style.transform = 'rotate(0) scale(1)';
-        });
-    }
-    
-    // Agregar estilos para efectos
-    const style = document.createElement('style');
-    style.textContent = `
-        @keyframes glowFadeIn {
-            from { opacity: 0; }
-            to { opacity: 0.5; }
-        }
-        
-        @keyframes glowFadeOut {
-            from { opacity: 0.5; }
-            to { opacity: 0; }
-        }
-    `;
-    document.head.appendChild(style);
 }
 
 function showWelcomeMessage() {
     setTimeout(() => {
-        console.log('%c💼 Kevin Luna - Desarrollador Full Stack & Data Scientist', 'color: #2563eb; font-size: 18px; font-weight: bold;');
-        console.log('%cTransformando ideas en soluciones digitales', 'color: #7c3aed; font-size: 14px;');
-        console.log('%c¡Gracias por visitar mi tarjeta de contacto!', 'color: #10b981; font-size: 12px;');
+        console.log('%c🚀 KEVIN LUNA - DATAVANTEX', 'color: #3b82f6; font-size: 20px; font-weight: 900;');
+        console.log('%c💡 Transformando datos en soluciones inteligentes', 'color: #8b5cf6; font-size: 14px;');
+        console.log('%c✨ Full Stack Development & Data Science', 'color: #10b981; font-size: 12px;');
     }, 1000);
 }
 
-// Mejorar la experiencia de teclado
+// Atajos de teclado simples
 document.addEventListener('keydown', function(e) {
-    // Atajos de teclado para los botones principales
-    if (e.ctrlKey) {
-        switch(e.key.toLowerCase()) {
-            case 'd':
-                e.preventDefault();
-                document.querySelector('.action-button.datavantex').click();
-                break;
-            case 'p':
-                e.preventDefault();
-                document.querySelector('.action-button.portfolio').click();
-                break;
-            case 't':
-                e.preventDefault();
-                document.querySelector('.action-button.store').click();
-                break;
-        }
+    // Ctrl/Cmd + D para Datavantex
+    if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'd') {
+        e.preventDefault();
+        const datavantexBtn = document.querySelector('.datavantex-button');
+        if (datavantexBtn) datavantexBtn.click();
     }
 });
 
-// Prevenir efectos no deseados en dispositivos táctiles
-let isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints;
-if (isTouchDevice) {
+// Optimización para dispositivos táctiles
+if ('ontouchstart' in window || navigator.maxTouchPoints) {
     document.body.classList.add('touch-device');
     
     // Mejorar experiencia táctil
-    const buttons = document.querySelectorAll('.action-button, .social-link');
-    buttons.forEach(button => {
-        button.style.cursor = 'pointer';
-        button.style.tapHighlightColor = 'transparent';
-        button.style.webkitTapHighlightColor = 'transparent';
+    const interactiveElements = document.querySelectorAll('.datavantex-button, .action-button, .social-link, .skill-card');
+    interactiveElements.forEach(element => {
+        element.style.cursor = 'pointer';
+        element.style.tapHighlightColor = 'transparent';
+        element.style.webkitTapHighlightColor = 'transparent';
     });
 }
 
-// Optimizar rendimiento
-let ticking = false;
-window.addEventListener('scroll', function() {
-    if (!ticking) {
-        window.requestAnimationFrame(function() {
-            // Aquí se pueden agregar efectos de parallax si se desean
-            ticking = false;
-        });
-        ticking = true;
+// Efecto de carga inicial
+window.addEventListener('load', function() {
+    const card = document.querySelector('.card');
+    if (card) {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        
+        setTimeout(function() {
+            card.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+        }, 300);
     }
 });
 
-// Manejar redimensionamiento
+// Manejo de redimensionamiento
 let resizeTimeout;
 window.addEventListener('resize', function() {
     clearTimeout(resizeTimeout);
@@ -273,17 +217,4 @@ window.addEventListener('resize', function() {
             particlesJS();
         }
     }, 250);
-});
-
-// Efecto de carga inicial
-window.addEventListener('load', function() {
-    const card = document.querySelector('.card');
-    card.style.opacity = '0';
-    card.style.transform = 'translateY(30px)';
-    
-    setTimeout(function() {
-        card.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-        card.style.opacity = '1';
-        card.style.transform = 'translateY(0)';
-    }, 300);
 });

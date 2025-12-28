@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kevin Luna | Desarrollador Full Stack & Data Scientist</title>
+    <title>Kevin Luna | Datavantex - Full Stack & Data Science</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,19 +13,22 @@
     <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>">
 </head>
 <body>
-    <!-- Fondo sutil -->
-    <div class="background-effect"></div>
+    <!-- Fondo dinámico con partículas -->
+    <div class="dynamic-bg"></div>
     
     <!-- Tarjeta principal -->
     <div class="card-container">
         <div class="card animate__animated animate__fadeIn">
-            <!-- Cabecera -->
+            <!-- Cabecera con perfil -->
             <div class="card-header">
                 <div class="profile-section">
                     <div class="avatar-container">
                         <div class="avatar-frame">
+                            <div class="avatar-glow-effect"></div>
                             <img src="Imagenes/Foto Perfil.jpg" alt="Kevin Luna" class="avatar">
-                            <div class="online-indicator"></div>
+                            <div class="online-indicator">
+                                <div class="pulse-ring"></div>
+                            </div>
                             <div class="avatar-badge">
                                 <i class="fas fa-code"></i>
                             </div>
@@ -33,7 +36,17 @@
                     </div>
                     
                     <div class="profile-info">
-                        <h1 class="name">Kevin <span class="name-accent">Luna</span></h1>
+                        <div class="name-wrapper">
+                            <h1 class="name">
+                                <span class="name-first">Kevin</span>
+                                <span class="name-accent">Luna</span>
+                            </h1>
+                            <div class="title-decoration">
+                                <div class="decoration-line"></div>
+                                <div class="decoration-dot"></div>
+                                <div class="decoration-line"></div>
+                            </div>
+                        </div>
                         
                         <div class="titles">
                             <div class="title-item primary">
@@ -53,24 +66,40 @@
                 </div>
             </div>
 
-            <!-- Cuerpo de la tarjeta -->
+            <!-- Cuerpo principal -->
             <div class="card-body">
-                <!-- Agencia - Primera sección -->
-                <div class="agency-section">
-                    <div class="agency-icon">
-                        <i class="fas fa-chart-network"></i>
-                    </div>
-                    <div class="agency-info">
-                        <p class="agency-label">Fundador y CEO de</p>
-                        <h2 class="agency-name">Datavantex</h2>
-                        <p class="agency-description">
-                            <i class="fas fa-bolt"></i>
-                            Transformando datos en soluciones inteligentes
-                        </p>
+                <!-- Sección Agencia Integrada con Botón -->
+                <div class="agency-integrated-section">
+                    <div class="agency-content">
+                        <div class="agency-header">
+                            <p class="agency-label">Fundador y CEO de</p>
+                            <h2 class="agency-name">Datavantex</h2>
+                            <p class="agency-description">
+                                <i class="fas fa-bolt"></i>
+                                Transformando datos en soluciones inteligentes
+                            </p>
+                        </div>
+                        
+                        <!-- Botón integrado en la sección -->
+                        <div class="agency-action">
+                            <a href="https://www.datavantex-agencia.com/" target="_blank" class="datavantex-button">
+                                <div class="button-content">
+                                    <div class="button-icon">
+                                        <i class="fas fa-rocket"></i>
+                                    </div>
+                                    <span class="button-text">Explorar Datavantex</span>
+                                    <div class="button-arrow">
+                                        <i class="fas fa-chevron-right"></i>
+                                    </div>
+                                </div>
+                                <div class="button-hover-effect"></div>
+                            </a>
+                            <p class="button-hint">Soluciones de datos inteligentes</p>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Botones principales -->
+                <!-- Accesos directos -->
                 <div class="action-buttons-section">
                     <h3 class="section-title">
                         <i class="fas fa-external-link-alt"></i>
@@ -78,47 +107,26 @@
                     </h3>
                     
                     <div class="action-buttons">
-                        <a href="https://tudatavantex.com" target="_blank" class="action-button datavantex">
-                            <div class="button-content">
-                                <div class="button-icon">
-                                    <i class="fas fa-rocket"></i>
-                                </div>
-                                <div class="button-text">
-                                    <span class="button-title">DATAVANTEX</span>
-                                    <span class="button-description">Visita mi agencia</span>
-                                </div>
-                                <div class="button-arrow">
-                                    <i class="fas fa-chevron-right"></i>
-                                </div>
-                            </div>
-                        </a>
-                        
-                        <a href="https://tucodigo.com/portafolio" target="_blank" class="action-button portfolio">
+                        <a href="https://www.kevinluna.wuaze.com/" target="_blank" class="action-button portfolio">
                             <div class="button-content">
                                 <div class="button-icon">
                                     <i class="fas fa-briefcase"></i>
                                 </div>
                                 <div class="button-text">
-                                    <span class="button-title">PORTFOLIO</span>
-                                    <span class="button-description">Ver mis proyectos y trabajos</span>
-                                </div>
-                                <div class="button-arrow">
-                                    <i class="fas fa-chevron-right"></i>
+                                    <span class="button-title">Mi Portafolio</span>
+                                    <span class="button-description">Ver mis proyectos</span>
                                 </div>
                             </div>
                         </a>
                         
-                        <a href="https://tutienda.com" target="_blank" class="action-button store">
+                        <a href="https://tienda-ecommerce-ariophytum.vercel.app/" target="_blank" class="action-button store">
                             <div class="button-content">
                                 <div class="button-icon">
                                     <i class="fas fa-shopping-cart"></i>
                                 </div>
                                 <div class="button-text">
-                                    <span class="button-title">TIENDA ONLINE</span>
-                                    <span class="button-description">Productos y servicios digitales</span>
-                                </div>
-                                <div class="button-arrow">
-                                    <i class="fas fa-chevron-right"></i>
+                                    <span class="button-title">Shop</span>
+                                    <span class="button-description">Productos digitales</span>
                                 </div>
                             </div>
                         </a>
@@ -137,8 +145,8 @@
                                 <i class="fas fa-code"></i>
                             </div>
                             <div class="skill-info">
-                                <h4>Full Stack Development</h4>
-                                <p>Frontend y backend integrados</p>
+                                <h4>Full Stack</h4>
+                                <p>Desarrollo completo</p>
                             </div>
                         </div>
                         <div class="skill-card">
@@ -147,7 +155,7 @@
                             </div>
                             <div class="skill-info">
                                 <h4>Data Science</h4>
-                                <p>Análisis y modelado de datos</p>
+                                <p>Análisis avanzado</p>
                             </div>
                         </div>
                         <div class="skill-card">
@@ -156,7 +164,7 @@
                             </div>
                             <div class="skill-info">
                                 <h4>Machine Learning</h4>
-                                <p>IA y algoritmos predictivos</p>
+                                <p>IA predictiva</p>
                             </div>
                         </div>
                         <div class="skill-card">
@@ -164,21 +172,9 @@
                                 <i class="fas fa-cloud"></i>
                             </div>
                             <div class="skill-info">
-                                <h4>Cloud Solutions</h4>
-                                <p>Arquitectura en la nube</p>
+                                <h4>Cloud</h4>
+                                <p>Soluciones en nube</p>
                             </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Pie de página con la frase -->
-            <div class="card-footer">
-                <div class="footer-quote">
-                    <div class="quote-content">
-                        <p class="quote-text">Si tenés una idea, yo te ayudo a hacerla digital.</p>
-                        <div class="quote-subtitle">
-                            <i class="fas fa-code"></i>
-                            Convirtiendo conceptos en código
                         </div>
                     </div>
                 </div>
@@ -191,23 +187,19 @@
                     </h3>
                     
                     <div class="social-links">
-                        <a href="https://linkedin.com/in/kevinluna" target="_blank" class="social-link linkedin">
+                        <a href="www.linkedin.com/in/kevin-luna-63bab512b" target="_blank" class="social-link linkedin">
                             <i class="fab fa-linkedin-in"></i>
                             <span>LinkedIn</span>
                         </a>
-                        <a href="https://github.com/kevinluna" target="_blank" class="social-link github">
+                        <a href="https://github.com/kevinluna94" target="_blank" class="social-link github">
                             <i class="fab fa-github"></i>
                             <span>GitHub</span>
                         </a>
-                        <a href="mailto:contacto@kevinluna.com" target="_blank" class="social-link email">
+                        <a href="mailto:kevineluna94@gmail.com" target="_blank" class="social-link email">
                             <i class="fas fa-envelope"></i>
                             <span>Email</span>
                         </a>
-                        <a href="https://twitter.com/kevinluna" target="_blank" class="social-link twitter">
-                            <i class="fab fa-twitter"></i>
-                            <span>Twitter</span>
-                        </a>
-                        <a href="https://wa.me/1234567890" target="_blank" class="social-link whatsapp">
+                        <a href="https://wa.me/+542954217949" target="_blank" class="social-link whatsapp">
                             <i class="fab fa-whatsapp"></i>
                             <span>WhatsApp</span>
                         </a>
@@ -215,36 +207,40 @@
                 </div>
             </div>
 
-            
+            <!-- Pie de página -->
+            <div class="card-footer">
+                <div class="footer-quote">
+                    <p class="quote-text">Si tenés una idea, yo te ayudo a hacerla digital.</p>
+                    <div class="quote-subtitle">
+                        <i class="fas fa-code"></i>
+                        <span>Convirtiendo conceptos en código</span>
+                    </div>
+                </div>
                 
                 <div class="footer-info">
                     <div class="tech-stack">
                         <div class="tech-item">
                             <i class="fab fa-html5"></i>
-                            <span>HTML5</span>
                         </div>
                         <div class="tech-item">
                             <i class="fab fa-css3-alt"></i>
-                            <span>CSS3</span>
                         </div>
                         <div class="tech-item">
                             <i class="fab fa-js"></i>
-                            <span>JavaScript</span>
                         </div>
                         <div class="tech-item">
                             <i class="fab fa-python"></i>
-                            <span>Python</span>
                         </div>
                         <div class="tech-item">
                             <i class="fab fa-react"></i>
-                            <span>React</span>
                         </div>
                     </div>
                     
                     <div class="footer-bottom">
                         <p class="copyright">
                             <i class="fas fa-copyright"></i>
-                            <span id="current-year"></span> Kevin Luna
+                            <span id="current-year"></span>
+                            <a href="https://www.kevinluna.wuaze.com/" target="_blank" class="copyright-link">Kevin Luna</a>
                         </p>
                         <div class="availability">
                             <div class="availability-dot"></div>
@@ -256,8 +252,8 @@
         </div>
     </div>
 
-    <!-- Efecto de partículas sutil -->
-    <div class="particles" id="particles-js"></div>
+    <!-- Efecto de partículas -->
+    <div class="particles-container" id="particles-js"></div>
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
